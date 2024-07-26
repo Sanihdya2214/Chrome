@@ -2,7 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoconnect from "./db/connectDB.js"
 import cors from "cors"
-import axios from "axios"
+
 
 import QuoteRoute from "./Routes/Quote.routes.js"
 import PollsRoute from "./Routes/Polls.routes.js"
@@ -15,7 +15,7 @@ const app = express()
 const Port = process.env.PORT || 3000
 const allowedOrigins = [
   "http://localhost:3001",
-  "chrome-extension://pmflbimijjhnniflneheicfjhekcbibl",
+  "chrome-extension://lahfjidemeeneijekeplkppmbjhmpbnb",
 ];
 const corsOptions = {
   origin: (origin, callback) => {
