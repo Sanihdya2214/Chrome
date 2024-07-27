@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import mongoconnect from "./db/connectDB.js"
 import cors from "cors"
 
-
+//Import function for routes
 import QuoteRoute from "./Routes/Quote.routes.js"
 import PollsRoute from "./Routes/Polls.routes.js"
 import IssueRoute from "./Routes/Issue.routes.js"
@@ -17,6 +17,7 @@ const allowedOrigins = [
   "http://localhost:3001",
   "chrome-extension://lahfjidemeeneijekeplkppmbjhmpbnb",
 ];
+//Managing cors error
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
@@ -35,14 +36,14 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: false }));
 app.use(cors(corsOptions));
 
-
+//Routess
 app.use("/api/Polls", PollsRoute)
 app.use("/api/Quotes", QuoteRoute)
 app.use("/api/Issues",IssueRoute)
 app.use("/api/ChatGpt",ChatGptRoute)
 
 
-
+//Port connection and MongoDb connection
 app.listen(Port, () => {
     console.log(`The server is running on the Port:${Port}`)
     mongoconnect()

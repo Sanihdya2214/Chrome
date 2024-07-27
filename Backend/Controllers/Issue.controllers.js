@@ -1,7 +1,7 @@
 export const PostIssue = async (req, res) => {
    const { issue } = req.body;
   const formData = new URLSearchParams();
-  formData.append("entry.2045070300", issue); // Replace with the correct field ID from Google Form
+  formData.append("entry.2045070300", issue); 
 
   try {
     const response = await fetch(
